@@ -1,24 +1,30 @@
 pipeline {
-    angent any
+    agent any
     stages {
-        stage('Build') {
+        stage ('Build') {
             steps {
-                echo "this is kairam uma stya subhash"
-
+                echo " ***** Building The Appliactio*****"
             }
         }
-        stage ('this is aecound stage') {
-            steps {
-                sh mvn package
-                echo "subhash kairam"
-                script {
-                    def course = "k8"
-                    if (course == "k8")
-                    println ("thank you for k8")
-                    else
-                    println ("thank you")
-                }
-            }
+        stage ('this is sonar machine') {
+        steps {
+            echo "****Scanning the application"
         }
     }
-}
+    stage ('this is for maven machine') {
+    steps {
+        echo "*****Implementinng the Applicaton"
+         }
+       } 
+       stage ('Docker') {
+        steps {
+            echo "*****docker implementing*******"
+         }
+       }
+       stages ('Kubernates') {
+        steps {
+            echo "******implements on kubernates******"
+        }
+       } 
+     } 
+  } 
