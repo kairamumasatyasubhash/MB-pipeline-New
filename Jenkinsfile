@@ -11,6 +11,7 @@ pipeline {
                 echo "Building the application"
             }
         }
+    }
         post {
             success {
                 mail bcc: '',body: 'The build was successful!', 
@@ -24,4 +25,3 @@ pipeline {
                     }
                  }
              }
-        }
