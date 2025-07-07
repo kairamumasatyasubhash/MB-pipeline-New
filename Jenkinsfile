@@ -12,7 +12,7 @@ pipeline {
             }
         }
         post {
-            sucess {
+            success {
                 mail bcc: '',body: 'The build was successful!', 
                      cc: '', from: '', replyTo: '', subject: 'Build Success Notification', 
                      to: 'classdevops378@gmail.com'
