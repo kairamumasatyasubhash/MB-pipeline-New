@@ -42,7 +42,8 @@ pipeline {
       }
       stage ('Tag') {
         when {
-            tag pattern:"v\\d{1,2}.\\d{1,2}.\\d{1,2}" comparator:"REGEXP"
+            allOf {
+                echo"print the value"
         }
         steps {
             echo "tag parrtenn addding"
