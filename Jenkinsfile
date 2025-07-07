@@ -41,9 +41,8 @@ pipeline {
         }
       }
       stage ('Tag') {
-        when {
-            allOf {
-                echo"print the value"
+       steps {
+           echo "print the values"
         }
         steps {
             echo "tag parrtenn addding"
@@ -51,4 +50,3 @@ pipeline {
        }
      }
    }
-}
