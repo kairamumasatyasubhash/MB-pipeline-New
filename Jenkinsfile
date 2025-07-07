@@ -6,6 +6,7 @@ pipeline {
                 echo "Welcome to jenkins Pipelines"
                  } 
              }
+         }
              post {
                 always {
                     script {
@@ -16,4 +17,3 @@ pipeline {
                 }
              }
         }
-    }
