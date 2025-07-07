@@ -47,7 +47,8 @@ pipeline {
         }
         steps {
             echo "tag parrtenn addding"
-        }
-      }
-    }
+         }
+       }
+     }
+   }
 }
