@@ -1,27 +1,18 @@
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage('sucess the code') {
+        stage ('Build') {
             steps {
-                echo "This is a successful pipeline execution"
-            }
-        }
-        stage ('bulding the applicsatiom') {
-            steps {
-                echo "Building the application"
-            }
+                echo "Welcome to jenkins Pipelines"
+                 } 
+             }
+             post {
+                always {
+                    script {
+                        def subject = "Job Status is: ${currentBuild.currentResult} "
+                        def body = "Build Number is: ${currentBuild.number}\n" + "Status is: ${currentBuild.currentResult}\n" + "Job URL : ${env.BUILD_URL}"
+                    }
+                }
+             }
         }
     }
-        post {
-            success {
-                mail bcc: '',body: 'The build was successful!', 
-                     cc: '', from: '', replyTo: '', subject: 'Build Success Notification', 
-                     to: 'classdevops378@gmail.com'
-            }
-            failure {
-                mail bcc: '', body: 'The build failed. Please check the logs.', 
-                     cc: '', from: '', replyTo: '', subject: 'Build Failure Notification', 
-                     to: 'classdevops378@gmail.com'
-                    }
-                 }
-             }
