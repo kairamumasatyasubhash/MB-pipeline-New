@@ -21,6 +21,7 @@ pipeline {
                 mail bcc: '', body: 'The build failed. Please check the logs.', 
                      cc: '', from: '', replyTo: '', subject: 'Build Failure Notification', 
                      to: 'classdevops378@gmail.com'
+                    }
+                 }
+             }
         }
-    }
-}
