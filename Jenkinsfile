@@ -1,30 +1,52 @@
 pipeline {
     agent any
     stages {
-        stage ('Build') {
+        stage ('Git') {
             steps {
-                echo " ***** Building The Appliactio*****"
+                echo " my name is subhash"
             }
         }
-        stage ('this is sonar machine') {
-        steps {
-            echo "****Scanning the application"
+        stage ('SonarCodeQuality') {
+         steps{
+            echo "code quality cheacking"   
         }
+
+      }
+      stage ('BuildTools') {
+        steps {
+            echo "building the application"
+        }
+      }
+      stage ('Jenkins') {
+        steps {
+            echo "Code Quality checking"
+        }
+      }
+      stage  ('Pipelines') {
+        steps {
+            echo "applicattion building"
+        }
+      }
+      stage ('Docker') {
+        steps {
+            echo "docker images  building"
+        }
+      }
+      stage ('Branch') {
+        when {
+            branch 'samsung/*'
+        }
+        steps {
+        echo "addind branch"
+        }
+      }
+      stage ('Tag') {
+        when {
+            tag pattern:"v\\d{1,2}.\\d{1,2}.\\d{1,2}" comparator:"REGEXP"
+        }
+        steps {
+            echo "tag parrtenn addding"
+        }
+      }
     }
-    stage ('this is for maven machine') {
-    steps {
-        echo "*****Implementinng the Applicaton"
-         }
-       } 
-       stage ('Docker') {
-        steps {
-            echo "*****docker implementing*******"
-         }
-       }
-       stages ('Kubernates') {
-        steps {
-            echo "******implements on kubernates******"
-        }
-       } 
-     } 
-  } 
+}
