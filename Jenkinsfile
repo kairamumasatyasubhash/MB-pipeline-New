@@ -1,49 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage ('Git') {
+        stage('sucess the code') {
             steps {
-                echo " my name is subhash"
+                echo "This is a successful pipeline execution"
             }
         }
-        stage ('SonarCodeQuality') {
-         steps{
-            echo "code quality cheacking"   
+        stage ('bulding the applicsatiom') {
+            steps {
+                echo "Building the application"
+            }
         }
-
-      }
-      stage ('BuildTools') {
-        steps {
-            echo "building the application"
+        post {
+            sucess {
+                mail bcc: '',body: 'The build was successful!', 
+                     cc: '', from: '', replyTo: '', subject: 'Build Success Notification', 
+                     to: 'classdevops378@gmail.com'
+            }
+            failure {
+                mail bcc: '', body: 'The build failed. Please check the logs.', 
+                     cc: '', from: '', replyTo: '', subject: 'Build Failure Notification', 
+                     to: 'classdevops378@gmail.com'
         }
-      }
-      stage ('Jenkins') {
-        steps {
-            echo "Code Quality checking"
-        }
-      }
-      stage  ('Pipelines') {
-        steps {
-            echo "applicattion building"
-        }
-      }
-      stage ('Docker') {
-        steps {
-            echo "docker images  building"
-        }
-      }
-      stage ('Branch') {
-        when {
-            branch 'samsung/*'
-        }
-        steps {
-        echo "addind branch"
-        }
-      }
-      stage ('Tag') {
-        steps {
-            echo "tag parrtenn addding"
-         }
-       }
-     }
-   }
+    }
+}
