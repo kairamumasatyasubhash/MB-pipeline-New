@@ -41,9 +41,6 @@ pipeline {
         }
       }
       stage ('Tag') {
-       steps {
-           echo "print the values"
-        }
         steps {
             echo "tag parrtenn addding"
          }
